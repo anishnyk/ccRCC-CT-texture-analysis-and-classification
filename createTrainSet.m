@@ -62,7 +62,7 @@ function [imMat] = createTrainSet(filePath, offset)
         [GLRLMS,~]= grayrlmatrix(I, 'G', [0 255], 'N', 256);
         for i=1:4
             GLRLangle = GLRLMS{i};
-            GLRLangle(1,:) = zeros(1,100);
+            GLRLangle(1,:) = zeros(1,n);
             GLRLMS{i} = GLRLangle;
         end
         
