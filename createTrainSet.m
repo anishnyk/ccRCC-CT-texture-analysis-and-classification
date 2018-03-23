@@ -23,6 +23,7 @@ function [imMat] = createTrainSet(filePath, offset)
         % import resized tumor scan as matrix 
         % convert to grayscale if RGB image
         RGB = imread(strcat('Assets/Tumor slides/resized/',fileList{a}));
+        
         if size(RGB,3) > 1
             I = im2gray(RGB);
         else
@@ -66,7 +67,7 @@ function [imMat] = createTrainSet(filePath, offset)
             GLRLMS{i} = GLRLangle;
         end
         
-        % extract 11 features from GLRLM for just the 45 degree angle
+        % extract 11 features from GLRLM for all 4 angles
         stats = grayrlprops(GLRLMS);
         glrlmsProps = mean(stats);
 
