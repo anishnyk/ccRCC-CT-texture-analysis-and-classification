@@ -1,4 +1,4 @@
-function [trainedClassifier, validationAccuracy, validationPredictions, validationScores] = trainClassifier(trainingData, crossValType)
+function [trainedClassifier, validationAccuracy, validationPredictions, validationScores] = trainClassifier(trainingData, crossValType, classes)
 % trainClassifier(trainingData, crossValType)
 %  returns a trained classifier and its accuracy.
 %  This code recreates the classification model trained in
@@ -65,7 +65,7 @@ classificationKNN = fitcknn(...
     'NumNeighbors', 1, ...
     'DistanceWeight', 'Equal', ...
     'Standardize', true, ...
-    'ClassNames', [2; 3]);
+    'ClassNames', classes);
 
 % Create the result struct with predict function
 predictorExtractionFcn = @(x) array2table(x, 'VariableNames', predictorNames);
